@@ -25,6 +25,7 @@ function Hundreds(number, flag = false) {
 
 function numberToWords(number) {
     let grug = '';
+    let numb2 = number %100;
     let inputNumber = parseInt(number);
 
     if (isNaN(inputNumber) || inputNumber < 0 || inputNumber > 999999999999 || CommaDot(number)) {
@@ -45,13 +46,13 @@ function numberToWords(number) {
 
     const numb = inputNumber % 10;
     switch (true) {
-        case (numb == 1 && (number<11 || number>14)):
+        case (numb == 1 && (numb2<11 || numb2>14)):
             grug = ' гривна';
             break;
-        case (numb >= 2 && numb <= 4 && (number<11 || number>14)):
+        case (numb >= 2 && numb <= 4 && (numb2<11 || numb2>14)):
             grug = ' гривни';
             break;
-        case (numb >= 5 && numb <= 9 || numb == 0 || (number>=11 && number<=14)):
+        case (numb >= 5 && numb <= 9 || numb == 0 || (numb2>=11 && numb2<=14)):
             grug = ' гривен';
             break;
     }
@@ -95,7 +96,6 @@ document.getElementById("inputNumber").addEventListener("input", function () {
     document.getElementById("outputWords").textContent = "Введите число";
 }
 });
-
 
 
 //////////////////////////////* OLD CODE *///////////////////////////////////
